@@ -4,12 +4,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { FaEye,FaEyeSlash  } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-        const {logIn, googleSignIn , gitHubSignIn } = useContext(AuthContext) || {};
-    const [error,setError] = useState()
-
+    const {logIn, googleSignIn , gitHubSignIn,setLoading } = useContext(AuthContext) || {};
+    const [error,setError] = useState();
+    const navigate = useNavigate();
+    const location = useLocation()
+   
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -18,8 +21,12 @@ const Login = () => {
 
         logIn(email,password)
         .then(result => {
-            console.log(result);
-            toast.success('You are signed in Successfully')
+            // console.log(result);
+            setLoading(false)
+            navigate(location?.state ? location.state : '/');
+            // console.log(location.state);
+            toast.success('You are signed in Successfully');
+            
         })
         .catch(error => {
           toast.error('Incorrect Email or Password')
@@ -29,9 +36,14 @@ const Login = () => {
     }
 
     //social media sign In 
-    const handleSocialSignIn = socialMediaSignIn =>{
+    const handleSocialSignIn = (socialMediaSignIn) =>{
         socialMediaSignIn()
-        .then()
+        .then(result => {
+            // console.log(result.user);
+            
+            navigate(location?.state ? location.state : '/');
+           
+        })
         .catch()
     }
 
@@ -64,13 +76,14 @@ const Login = () => {
                 <div className='text-center font-bold'>
            
            <p className="px-3 text-xl my-3 dark:text-gray-600">----- Login with social accounts ------</p>
-            <div className='border-2 border-green-300 rounded-xl mb-2 mx-3'>
-                <button onClick={()=>{handleSocialSignIn(googleSignIn)}} className='text-green-600 text-3xl'><FcGoogle  /></button>
+            <div className=' border-green-300 rounded-xl mb-2 mx-3'>
+                <button onClick={()=>{handleSocialSignIn(googleSignIn)}} className='text-green-600 text-2xl btn w-full border-2 border-green-300 '><FcGoogle  /> Google</button>
             </div>
-            <div className='border-2 border-green-300 rounded-xl mb-6 mx-3'>
-            <button onClick={()=>{handleSocialSignIn(gitHubSignIn)}}  className=' text-3xl'><FaGithub />
+            <div className=' border-green-300 rounded-xl mb-6 mx-3'>
+            <button onClick={()=>{handleSocialSignIn(gitHubSignIn)}}  className=' btn w-full border-2 border-green-300 text-2xl'><FaGithub /> Github
              </button>    
             </div>
+            <p className="text-center mb-6">Do not an have account? <Link to={'/register'}><span className="text-green-600 font-bold">Register here</span></Link> </p>
                    
 
            </div>

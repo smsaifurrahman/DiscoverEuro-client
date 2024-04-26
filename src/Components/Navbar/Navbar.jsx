@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext) || {} ;
@@ -14,7 +15,10 @@ const Navbar = () => {
     </>
     const handleLogout = () => {
       logOut()
-      .then(result =>{console.log(result);})
+      .then(result =>{
+      toast.success('You are logged Out')
+      
+      })
       .catch()
     } 
 
@@ -38,10 +42,10 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user 
+      user  
       ? <div className='flex gap-2 items-center justify-center'>
         <div className="">
-          <img className='w-12 rounded-full' alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img title={user.displayName} className='w-12 rounded-full' alt="Tailwind CSS Navbar component" src={user.photoURL} />
         </div>
         <Link to={'/'} > <button onClick={handleLogout} className='btn'>Logout</button> </Link>
         </div>

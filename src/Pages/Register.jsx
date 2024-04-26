@@ -3,9 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 import { ToastContainer, toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-  const {createUser,logOut} = useContext(AuthContext);
+  const {createUser,logOut} = useContext(AuthContext) || {};
   const [error, setError] = useState('');
   const navigate = useNavigate()
     const handleRegister = e => {
@@ -13,6 +14,7 @@ const Register = () => {
       e.preventDefault();
       const form = e.target;
       const email = form.email.value;
+      const name = form.name.value;
       const photo = form.photo.value;
       const password = form.password.value;
 
@@ -35,6 +37,14 @@ const Register = () => {
 
       createUser(email,password)
       .then(result => {
+       
+        updateProfile(result.user,{
+          displayName: name,
+          photoURL: photo
+
+        })
+        .then()
+        .catch()
         e.target.reset();
         logOut()
         console.log(result);
@@ -57,6 +67,12 @@ const Register = () => {
         <h1 className='text-2xl font-bold my-6'>Please Register here</h1>
              <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleRegister} className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input type="text" name='name' placeholder="You Name" className="input input-bordered" required />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

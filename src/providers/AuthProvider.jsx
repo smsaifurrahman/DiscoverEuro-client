@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 import { app } from "../Firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
 import Login from "../Pages/Login";
-import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/cordova";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 
@@ -20,15 +20,18 @@ const AuthProvider = ({children}) => {
     };
 
     const logIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password);
     };
 
     // Social media sign in 
 
     const googleSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth,googleProvider);
     }
     const gitHubSignIn = () => {
+        setLoading(true)
         return signInWithPopup(auth,gitHubProvider)
     }
 
@@ -41,6 +44,7 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth,currentUser =>{
             setUser(currentUser);
+            setLoading(false)
         });
         return ()=> {
             unSubscribe();
@@ -53,7 +57,10 @@ const AuthProvider = ({children}) => {
         user,
         loading,
         logOut,
-        logIn
+        logIn,
+        googleSignIn,
+        gitHubSignIn,
+        setLoading
     }
 
 

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../providers/AuthProvider';
 
 const AddTouristSpots = () => {
+    const {user} = useContext(AuthContext) || {};
+    
+
 
     const handleAddSpot = e => {
         e.preventDefault();
@@ -31,6 +35,7 @@ const AddTouristSpots = () => {
         })
         .then(res => res.json())
         .then(data => {
+           e.target.reset()
             console.log(data);
             if(data.insertedId) {
                 toast("New Spot added Successfully");
@@ -42,6 +47,7 @@ const AddTouristSpots = () => {
     return (
         <div>
             <h1 className='text-center text-3xl font-bold my-3'>Add New Spots</h1>
+            
             <div className='md:max-w-5xl max-w-full mx-auto overflow-x-hidden'>
                 <form onSubmit={handleAddSpot} className='space-y-2'>
                     <div className='grid grid-cols-2 gap-2'>
@@ -83,11 +89,11 @@ const AddTouristSpots = () => {
                                 <input type="text" name='totalVisitor' placeholder="Total Visitor per year" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">User Email
-                                <input type="email" name='userEmail' placeholder="User Email" required />
+                                <input type="email" defaultValue={ user.email}  name='userEmail' disabled placeholder="User Email" required />
                             </label>
                             {/* Row 3 */}
                             <label className="input input-bordered flex items-center gap-2">User Name
-                                <input type="text" name='userName' placeholder="User Name" required />
+                                <input type="text" defaultValue={ user.displayName}  name='userName' disabled placeholder="User Name" required />
                             </label>
                         </div>
                     </div>
