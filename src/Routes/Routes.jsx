@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SpotCardDetails from "../Components/Navbar/SpotCardDetails";
+import UpdateSpot from "../Pages/UpdateSpot";
 
  export const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ import SpotCardDetails from "../Components/Navbar/SpotCardDetails";
           path: '/spotdetails/:id',
           element: <SpotCardDetails></SpotCardDetails>,
           loader: ({params}) => fetch(`http://localhost:5000/spots/${params.id}`)
+        },
+        {
+          path: '/updatespot/:id',
+          element: <UpdateSpot></UpdateSpot>,
+          loader: ({params})=> fetch(`http://localhost:5000/spots/${params.id}`)
         }
       ]
     },
