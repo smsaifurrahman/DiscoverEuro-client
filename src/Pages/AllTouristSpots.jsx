@@ -10,9 +10,6 @@ const AllTouristSpots = () => {
     const loadedSpots = useLoaderData() || [];
     const [spots ,setSpots ] = useState(loadedSpots) || [];
 
-    useEffect(()=>{
-
-    },[spots])
 
 
     const handleSortBy = (sortBy) => {

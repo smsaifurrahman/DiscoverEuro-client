@@ -10,15 +10,18 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SpotCardDetails from "../Components/Navbar/SpotCardDetails";
 import UpdateSpot from "../Pages/UpdateSpot";
 import SpecificCountries from "../Pages/SpecificCountries";
+import ErrorPage from '../Pages/ErrorPage'
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <Root ></Root>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path: '/',
-          element: <Home></Home>
+          element: <Home></Home>,
+          loader: () => fetch('http://localhost:5000/spots')
         },
         {
           path: '/allspot',

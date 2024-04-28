@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CountryCard from './CountryCard';
 
 const Countries = () => {
     const [countries,setCountries] = useState([])
 
+   useEffect(() =>{
     fetch('http://localhost:5000/countries')
     .then(res =>res.json())
     .then(data => {
         setCountries(data)
     })
+   },[])
 
     return (
         <div>
