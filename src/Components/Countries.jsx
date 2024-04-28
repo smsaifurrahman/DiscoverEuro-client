@@ -13,6 +13,7 @@ const Countries = () => {
     return (
         <div>
             Countries {countries.length}
+            {countries.length === 0 && <span>loading</span> }
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     countries.map(country => <CountryCard country={country} key={country._id}></CountryCard>)

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CountryCard = ({country}) => {
     const {image, countryName, description }= country || {}
@@ -9,7 +10,7 @@ const CountryCard = ({country}) => {
     <h2 className="card-title">{countryName}</h2>
     <p>{description.slice(0,100)}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+     <Link to={`/spots/country/${countryName}`}> <button className="btn btn-primary">Buy Now</button></Link>
     </div>
   </div>
 </div>

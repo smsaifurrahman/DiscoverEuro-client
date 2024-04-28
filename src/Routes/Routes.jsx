@@ -9,6 +9,7 @@ import Register from "../Pages/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SpotCardDetails from "../Components/Navbar/SpotCardDetails";
 import UpdateSpot from "../Pages/UpdateSpot";
+import SpecificCountries from "../Pages/SpecificCountries";
 
  export const router = createBrowserRouter([
     {
@@ -49,6 +50,11 @@ import UpdateSpot from "../Pages/UpdateSpot";
           path: '/updatespot/:id',
           element: <UpdateSpot></UpdateSpot>,
           loader: ({params})=> fetch(`http://localhost:5000/spots/${params.id}`)
+        },
+        {
+          path: '/spots/country/:countryName',
+          element: <SpecificCountries></SpecificCountries>,
+          loader: ({params}) => fetch(`http://localhost:5000/spots/country/${params.countryName}`)
         }
       ]
     },

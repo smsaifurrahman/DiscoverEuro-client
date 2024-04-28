@@ -9,7 +9,7 @@ const SpotCard = ({spot}) => {
             <div className="card-body">
                 <h2 className="card-title"> {spotName} </h2>
                 <h2 className="card-title"> Total Visitor Yearly: {totalVisitor} </h2>
-                <h2 className="card-title"> Travel Time: {travelTime} </h2>
+                <h2 className="card-title"> Average Cost {averageCost} </h2>
                 <h2 className="card-title"> Travel Time: {travelTime} </h2>
                 <h2 className="card-title"> Total Visitor Yearly: {totalVisitor} </h2>
 
