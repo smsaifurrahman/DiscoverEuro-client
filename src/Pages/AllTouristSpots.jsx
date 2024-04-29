@@ -37,7 +37,7 @@ const AllTouristSpots = () => {
                     </ul>
                 </div>
              </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6 mb-4'>
                 {
                     spots.map(spot => <SpotCard spot={spot} key={spot._id}></SpotCard>)
                 }
