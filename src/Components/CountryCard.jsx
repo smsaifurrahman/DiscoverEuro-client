@@ -5,10 +5,10 @@ const CountryCard = ({country}) => {
     const {image, countryName, description }= country || {}
     return (
       <Link to={`/spots/country/${countryName}`}> 
-        <div className="card card-compact transition md:hover:scale-105 bg-base-100 shadow-xl">
+        <div className="card card-compact transition md:hover:scale-105 bg-base-100 shadow-xl border-2">
         <figure className='relative'>
         <div className='h-72 rounded-xl'>
-          <img className='h-full rounded-xl' src={image} alt="Shoes" />
+          <img className='h-full  rounded-xl' src={image} alt="Shoes" />
           <div className="absolute inset-0 rounded-xl opacity-50"></div>
         </div>
         <h2 className="card-title absolute bottom-0 left-1 text-2xl text-white p-3 font-bold">{countryName}</h2>
@@ -19,7 +19,7 @@ const CountryCard = ({country}) => {
 
         <div className="card-body">
           
-          <p>{description.slice(0,100)}</p>
+          <p className='text-xl'>{description.slice(0,100)}...</p>
           <div className="card-actions justify-end">
     
             </div>

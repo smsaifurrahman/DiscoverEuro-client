@@ -4,6 +4,7 @@ import { Fade } from "react-awesome-reveal";
 import Banner from '../Components/Banner';
 import TouristSpotHome from '../Components/TouristSpotHome';
 import { useLoaderData } from 'react-router-dom';
+import WhyUs from '../Components/WhyUs';
 
 const Home = () => {
     const spots = useLoaderData() || [];
@@ -13,6 +14,7 @@ const Home = () => {
            <Banner></Banner>
            <TouristSpotHome spots={spots} ></TouristSpotHome>
            <Countries></Countries>
+           <WhyUs></WhyUs>
         </div>
     );
 };

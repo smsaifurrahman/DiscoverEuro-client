@@ -1,6 +1,7 @@
 import { update } from 'firebase/database';
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateSpot = () => {
     const spot = useLoaderData() || {};
@@ -14,7 +15,7 @@ const UpdateSpot = () => {
         const countryName = form.countryName.value;
         const location = form.location.value;
         const description  = form.description.value;
-        const averageCost = form.averageCost.value;
+        const averageCost = parseInt(form.averageCost.value)
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const totalVisitor = form.totalVisitor.value;
@@ -30,7 +31,11 @@ const UpdateSpot = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            alert('updated')
+            Swal.fire({
+                title: "Updated",
+                text: "Spot Updated Successfully.",
+                icon: "success"
+              });
         })
 
     }
@@ -69,18 +74,18 @@ const UpdateSpot = () => {
                         {/* Second Column */}
                         <div className="flex flex-col gap-2">
                         <label className="input input-bordered flex items-center gap-2">Average-Cost
-                                <input type="text" defaultValue={averageCost} name='averageCost' placeholder="Average Cost" required />
+                                <input type="number" defaultValue={averageCost} name='averageCost' placeholder="Average Cost" required />
                             </label>
                             {/* Row 1 */}
                             <label className="input input-bordered flex items-center gap-2">Seasonality
                                 <input type="text" defaultValue={seasonality} name='seasonality' placeholder="Seasonality" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Travel-time
-                                <input type="text" defaultValue={travelTime} name='travelTime' placeholder="Travel Time" required />
+                                <input type="number" defaultValue={travelTime} name='travelTime' placeholder="Travel Time" required />
                             </label>
                             {/* Row 2 */}
                             <label className="input input-bordered flex items-center gap-2">TotalVisitorsPerYear
-                                <input type="text" defaultValue={totalVisitor} name='totalVisitor' placeholder="Total Visitor per year" required />
+                                <input type="number" defaultValue={totalVisitor} name='totalVisitor' placeholder="Total Visitor per year" required />
                             </label>
                             
                         </div>

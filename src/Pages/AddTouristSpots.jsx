@@ -55,45 +55,45 @@ const AddTouristSpots = () => {
                         <div className="flex flex-col gap-2">
                             {/* Row 1 */}
                             <label className="input input-bordered flex items-center gap-2">Image
-                                <input type="text" name='image' className="" placeholder="Photo URL" required />
+                                <input className='w-full' type="text" name='image'  placeholder="Photo URL" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Spot Name
-                                <input type="text" name='spotName' placeholder="Tourist spot Name" required />
+                                <input type="text" className='w-full' name='spotName' placeholder="Tourist spot Name" required />
                             </label>
                             {/* Row 2 */}
                             <label className="input input-bordered flex items-center gap-2">Country Name
-                                <input type="text" name='countryName' placeholder="Country Name" required />
+                                <input type="text" className='w-full' name='countryName' placeholder="Country Name" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Location
-                                <input type="text" name='location' placeholder="Location" required />
+                                <input className='w-full' type="text" name='location' placeholder="Location" required />
                             </label>
                             {/* Row 3 */}
                             <label className="input input-bordered flex items-center gap-2">Description
-                                <input type="text" name='description' placeholder="Description" required />
+                                <input className='w-full' type="text" name='description' placeholder="Description" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Average-Cost
-                                <input type="text" name='averageCost' placeholder="Average Cost" required />
+                                <input className='w-full' type="number" name='averageCost' placeholder="Average Cost" required />
                             </label>
                         </div>
                         {/* Second Column */}
                         <div className="flex flex-col gap-2">
                             {/* Row 1 */}
                             <label className="input input-bordered flex items-center gap-2">Seasonality
-                                <input type="text" name='seasonality' placeholder="Seasonality" required />
+                                <input className='w-full' type="text" name='seasonality' placeholder="Seasonality" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Travel-time
-                                <input type="number" name='travelTime' placeholder="Travel Time" required />
+                                <input className='w-full' type="number" name='travelTime' placeholder="Travel Time" required />
                             </label>
                             {/* Row 2 */}
                             <label className="input input-bordered flex items-center gap-2">TotalVisitorsPerYear
-                                <input type="text" name='totalVisitor' placeholder="Total Visitor per year" required />
+                                <input className='w-full' type="number" name='totalVisitor' placeholder="Total Visitor per year" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">User Email
-                                <input type="email" defaultValue={ user.email}  name='userEmail' disabled placeholder="User Email" required />
+                                <input className='w-full' type="email" defaultValue={ user.email}  name='userEmail' disabled placeholder="User Email" required />
                             </label>
                             {/* Row 3 */}
                             <label className="input input-bordered flex items-center gap-2">User Name
-                                <input type="text" defaultValue={ user.displayName}  name='userName' disabled placeholder="User Name" required />
+                                <input className='w-full' type="text" defaultValue={ user.displayName}  name='userName' disabled placeholder="User Name" required />
                             </label>
                         </div>
                     </div>

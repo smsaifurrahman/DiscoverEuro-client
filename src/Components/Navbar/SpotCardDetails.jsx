@@ -10,9 +10,9 @@ const SpotCardDetails = () => {
         <div className="card lg:card-side bg-base-100 shadow-xl mt-8">
         <figure className='md:h-[460px] relative h-96 md:w-1/2 w-full object-cover'>
            <div className='relative'>
-           <img className='object-over' src={image} alt="Album"/>
+           <img className='object-over h-full' src={image} alt="Album"/>
              
-           <h2 className="card-title absolute text-sm text-white -bottom-1 p-3 font-bold left-0 rounded-l-btn bg-red-500">  {travelTime} < span className=''>Days & </span> {travelTime-1} <span>Nights</span> </h2>
+           <h2 className="card-title absolute text-sm text-white  p-3 font-bold left-0 top-0 rounded-l-btn bg-red-500">  {travelTime} < span className=''>Days & </span> {travelTime-1} <span>Nights</span> </h2>
            </div>
        
         </figure>
