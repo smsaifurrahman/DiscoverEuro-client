@@ -17,10 +17,11 @@ const Countries = () => {
         <div className='my-8'>
             
 
-                 <Fade>   <h2 className='text-3xl font-bold text-center my-8 text-blue-500'> Choose Your favorite Country to Unleash your Dreams </h2></Fade>
+                 <Fade>   <h2 className=' text-2xl md:text-3xl  font-bold text-center mt-12 text-red-500 italic'> Choose Your favorite Country to Unleash your Dreams </h2></Fade>
+                 <h2 className=' text-center mt-2  mb-6  '>Opt for our tourism service and unlock a world of extraordinary adventures. <br /> With us, you're not just a visitor; you're a curious soul, delving deep into the soul of every <br /> locale with expert guidance and attentive service.</h2>
                  { !countries ? <div className='flex flex-col items-center justify-center'><span className="loading loading-dots loading-lg"></span> </div> :
                  
-                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
                 {
                     countries.map(country => <CountryCard country={country} key={country._id}></CountryCard>)
                 }

@@ -60,32 +60,35 @@ const MyList = () => {
     }
 
     return (
-        <div className=''>
+        <div className=' w-full md:w-3/5 mx-auto '>
+         
              <div>
-             <div className="">
-                <table className="table w-full md:w-xl lg:w-5xl mx-auto ">
+             <div className="   ">
+                <table className="table  ">
+                
                     {/* head */}
                     <thead>
                     <tr className='font-bold text-sm text-green-600 '>
                         
-                        <th>Spot Name</th>
+                        <th className=''>Spot Name</th>
                         <th>Country</th>
-                        <th>Update data</th>
-                        <th>Delete data</th>
+                        <th className=''>Actions</th>
+                        
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='' >
+                    {!spots && <div className='flex flex-col items-center justify-center'><span className="loading  loading-dots loading-lg"></span> </div> }
                     {/* row 1 */}
                          {
                             spots.map(spot => 
 
-                            <tr key={spot._id}>
+                            <tr key={spot._id} className=''>
                         
-                                <td>
-                                <div className="flex items-center gap-3">
+                            <td className='  '>
+                                <div className="flex items-center gap-3 ">
                                     <div className="avatar">
-                                    <div className="mask mask-squircle w-24 h-24">
-                                        <img src={spot.image} />
+                                    <div className="  rounded-xl w-24 h-24">
+                                        <img className='h-full w-full' src={spot.image} />
                                     </div>
                                     </div>
                                     <div>
@@ -93,15 +96,15 @@ const MyList = () => {
                                     <div className="text-xl opacity-50">{spot.location}</div>
                                     </div>
                                 </div>
-                                </td>
-                                <td>
+                            </td>
+                            <td>
                                 
                                 <span className="badge badge-ghost badge-sm">{spot.countryName}</span>
                                 </td>
-                                <td> <Link to={`/updatespot/${spot._id}`}> <button className='btn ' >Update</button> </Link> </td>
-                                <th>
-                                <Link> <button onClick={()=>{handleDelete(spot._id)}} className='btn ' >Delete</button> </Link>
-                                </th>
+                            <td className='  border-red-400'> <Link to={`/updatespot/${spot._id}`}> <button className='btn bg-green-500 text-white ' >Update</button> </Link>
+                                <Link> <button onClick={()=>{handleDelete(spot._id)}} className='btn bg-red-500 text-white ' >Delete</button> </Link>
+                            </td>
+                                
                             </tr>)
                          }
                   
