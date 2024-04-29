@@ -9,7 +9,7 @@ const MyList = () => {
     
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/spots/email/${user.email}`)
+        fetch(`https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots/email/${user.email}`)
         .then(res => res.json())
         .then(data => {
             setSpots(data)
@@ -18,7 +18,7 @@ const MyList = () => {
     },[spots])
 
     const handleDelete = id => {
-       fetch(`http://localhost:5000/spots/${id}`, {
+       fetch(`https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots/${id}`, {
         method:'DELETE'
        })
     //    .then(res=>{
@@ -28,10 +28,10 @@ const MyList = () => {
     }
 
     return (
-        <div className='max-w-5xl mx-auto'>
+        <div className=''>
              <div>
              <div className="">
-                <table className="table">
+                <table className="table w-full md:w-xl lg:w-5xl mx-auto ">
                     {/* head */}
                     <thead>
                     <tr className='font-bold text-sm text-green-600 '>

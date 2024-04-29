@@ -7,12 +7,12 @@ const SpotCard = ({spot}) => {
         <div className="card card-compact  bg-base-100 shadow-xl">
             <figure><img className='w-full h-72' src={image} alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title"> {spotName} </h2>
+                <h2 className="card-title text-green-700 text-2xl font-bold"> {spotName} </h2>
+               
                 <h2 className="card-title"> Total Visitor Yearly: {totalVisitor} </h2>
-                <h2 className="card-title"> Average Cost {averageCost} </h2>
-                <h2 className="card-title"> Travel Time: {travelTime} </h2>
-                <h2 className="card-title"> Total Visitor Yearly: {totalVisitor} </h2>
-
+             
+                <h2 className="card-title"> Travel Time: {travelTime} <span>Days</span> </h2>
+               
                 
                 
                 <div className=" flex justify-between gap-40 items-center  ">

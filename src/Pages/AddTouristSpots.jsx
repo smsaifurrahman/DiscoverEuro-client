@@ -17,7 +17,7 @@ const AddTouristSpots = () => {
         const countryName = form.countryName.value;
         const location = form.location.value;
         const description  = form.description.value;
-        const averageCost = form.averageCost.value;
+        const averageCost = parseInt(form.averageCost.value);
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const totalVisitor = form.totalVisitor.value;
@@ -26,7 +26,7 @@ const AddTouristSpots = () => {
 
         const spotInfo = { image, spotName, countryName, location, description, averageCost, seasonality, travelTime, totalVisitor, userEmail, userName };
         console.log(spotInfo);
-        fetch('http://localhost:5000/spots',{
+        fetch('https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots',{
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -82,7 +82,7 @@ const AddTouristSpots = () => {
                                 <input type="text" name='seasonality' placeholder="Seasonality" required />
                             </label>
                             <label className="input input-bordered flex items-center gap-2">Travel-time
-                                <input type="text" name='travelTime' placeholder="Travel Time" required />
+                                <input type="number" name='travelTime' placeholder="Travel Time" required />
                             </label>
                             {/* Row 2 */}
                             <label className="input input-bordered flex items-center gap-2">TotalVisitorsPerYear

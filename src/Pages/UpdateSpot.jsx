@@ -23,7 +23,7 @@ const UpdateSpot = () => {
         const spotInfo = { image, spotName, countryName, location, description, averageCost, seasonality, travelTime, totalVisitor};
        
         // fetch data to update
-        fetch(`http://localhost:5000/spots/${_id}`,{
+        fetch(`https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots/${_id}`,{
             method: 'PUT',
             headers: {'content-type' : 'application/json'},
             body: JSON.stringify(spotInfo)

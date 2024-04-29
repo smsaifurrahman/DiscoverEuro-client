@@ -13,10 +13,12 @@ const AllTouristSpots = () => {
 
 
     const handleSortBy = (sortBy) => {
+        console.log('insde sorrt');
         fetch(`http://localhost:5000/spots${sortBy ? `?sortBy=${sortBy}`: ''}`)
         .then(res => res.json())
         .then(data => {
             setSpots(data)
+            console.log(data);
         })
     }
 
@@ -28,10 +30,10 @@ const AllTouristSpots = () => {
             {/* sort  */}
             <div className='flex flex-col items-center'>
                 <div className="dropdown dropdown-right dropdown-end">
-                    <div tabIndex={0} role="button" className="btn m-1">Click</div>
+                    <div tabIndex={0} role="button" className="btn m-1">Filter</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a onClick={()=> handleSortBy('ACE')}>Item 1</a></li>
-                    <li><a>Item 2</a></li>
+                    <li><a onClick={()=> handleSortBy('sort')}>Ascending </a></li>
+                    
                     </ul>
                 </div>
              </div>
