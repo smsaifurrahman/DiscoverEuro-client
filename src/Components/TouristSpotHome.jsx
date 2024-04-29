@@ -8,7 +8,8 @@ const TouristSpotHome = ({spots}) => {
 
     return (
         <div>
-            <Fade><h2 className='text-2xl font-bold text-center my-5' > Glimpse of Amazing places you might dive in </h2></Fade>
+           
+            <Fade>   <h2 className='text-3xl font-bold text-center my-8 text-blue-500'>  Glimpse of Amazing places you might dive in</h2></Fade>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4' >
                 {
                     slicedSpots.map(spot => <SpotCard key={spot._id} spot={spot}></SpotCard>)

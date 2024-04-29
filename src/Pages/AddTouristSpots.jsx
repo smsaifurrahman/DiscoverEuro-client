@@ -36,7 +36,7 @@ const AddTouristSpots = () => {
         .then(res => res.json())
         .then(data => {
            e.target.reset()
-            console.log(data);
+            // console.log(data);
             if(data.insertedId) {
                 toast("New Spot added Successfully");
             }

@@ -30,6 +30,7 @@ const Login = () => {
         })
         .catch(error => {
           toast.error('Incorrect Email or Password')
+          console.log(error);
 
         })
         
@@ -40,19 +41,22 @@ const Login = () => {
         socialMediaSignIn()
         .then(result => {
             // console.log(result.user);
-            
+            setLoading(false)
             navigate(location?.state ? location.state : '/');
+            toast.success('You are signed in Successfully');
            
         })
-        .catch()
+        .catch(error =>{
+            console.log(error);
+        })
     }
 
 
     return (
 
-        <div className='flex flex-col items-center mb-6'>
+        <div className='flex flex-col items-center mb-6 '>
              <h1 className='text-2xl font-bold my-4'>Please Login here</h1>
-            <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card shrink-0 w-full max-w-sm border-2 shadow-2xl bg-base-100">
                 <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
                     <label className="label">

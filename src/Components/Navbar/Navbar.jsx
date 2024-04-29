@@ -29,10 +29,10 @@ const Navbar = () => {
   }
 
     const navLinks = <>
-            <NavLink to={'/'} className={({isActive}) => isActive ? ' font-bold text-xl text-orange-600 p-2 rounded-xl border-2 border-orange-300' : 'font-bold p-2 text-xl rounded-xl border-2 border-orange-300'}> Home </NavLink>
-            <NavLink to={'/allspot'} className= {({isActive}) => isActive ? ' font-bold text-orange-600 border-2 border-orange-300 text-xl p-2 rounded-xl md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-orange-300  md:mx-2'} > All Tourists Spots </NavLink>
-            <NavLink to={'/addspot'} className={({isActive}) => isActive ? ' font-bold text-orange-600 text-xl border-2 border-orange-300  p-2 rounded-xl' : 'font-bold p-2 text-xl rounded-xl border-2 border-orange-300'}> Add Tourists Spot </NavLink>
-            <NavLink to={'/mylist'} className={({isActive}) => isActive ? ' font-bold text-orange-600 text-xl border-2 border-green-300  p-2 rounded-xl  md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-green-300  md:mx-2'}> My List </NavLink>
+            <NavLink to={'/'} className={({isActive}) => isActive ? ' font-bold text-xl text-red-500 p-2 rounded-xl border-2 border-red-300 ' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300 '}> Home </NavLink>
+            <NavLink to={'/allspot'} className= {({isActive}) => isActive ? ' font-bold text-red-500 border-2 border-red-300  text-xl p-2 rounded-xl md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300   md:mx-2'} > All Tourists Spots </NavLink>
+            <NavLink to={'/addspot'} className={({isActive}) => isActive ? ' font-bold text-red-500 text-xl border-2 border-red-300   p-2 rounded-xl' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300 '}> Add Tourists Spot </NavLink>
+            <NavLink to={'/mylist'} className={({isActive}) => isActive ? ' font-bold text-red-500 text-xl border-2 border-red-300  p-2 rounded-xl  md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300  md:mx-2'}> My List </NavLink>
     
            
     
@@ -58,7 +58,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost font-bold text-2xl">DiscoverEuro</a>
+          <Link to={'/'} className="btn btn-ghost font-bold text-2xl md:text-3xl text-red-500 ">DiscoverEuro</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -90,9 +90,11 @@ const Navbar = () => {
         </div>
       
       : 
-      <div>
-        <Link to={'/login'}> <button className='btn mr-2'>Login</button> </Link>
-      <Link to={'/register'} > <button className='btn'>Register</button> </Link> 
+      <div className='flex '>
+         <NavLink to={'/login'} className={({isActive}) => isActive ? ' font-bold text-xl text-red-500 p-2 rounded-xl mr-1 md:mr-2 border-2 border-red-300 ' : 'font-bold p-2 text-xl rounded-xl border-2 mr-2 border-red-300 '}> Login </NavLink> 
+         <NavLink to={'/register'} className={({isActive}) => isActive ? ' font-bold text-xl text-red-500 p-2 rounded-xl border-2 border-red-300 ' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300 '}> Register </NavLink>
+        {/* <Link to={'/login'}> <button className='btn mr-2 '>Login</button> </Link> */}
+      {/* <Link to={'/register'} > <button className='btn'>Register</button> </Link>  */}
       </div> 
       
     }
