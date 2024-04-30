@@ -64,57 +64,59 @@ const MyList = () => {
     }
 
     return (
-        <div className='w-full md:w-3/5 mx-auto '>
-           
-    <div>
-        <div className="   ">
-            <table className="table">
-                
-                {/* head */}
-                <thead>
-                    <tr className='font-bold text-sm text-green-600'>
-                        <th className=''>Spot Name</th>
-                        <th>Country</th>
-                        <th className=''>Actions</th>
-                    </tr>
-                </thead>
-                <tbody className=''>
-                   
-                    {/* row 1 */}
-                    {
-                        spots.map(spot => 
-                            <tr key={spot._id} className=''>
-                                <td className='w-1/2 sm:w-1/3'>
-                                    <div className="flex items-center gap-3 ">
-                                        <div className="avatar">
-                                            <div className="rounded-xl w-24 h-24">
-                                                <img className='h-full w-full' src={spot.image} alt={spot.spotName} />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold text-sm md:text-xl">{spot.spotName}</div>
-                                            <div className="text-sm md:text-xl opacity-50">{spot.location}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span className="badge badge-ghost badge-sm">{spot.countryName}</span>
-                                </td>
-                                <td className='w-1/2 sm:w-1/3 border-red-400'>
-                                    <Link to={`/updatespot/${spot._id}`}><button className='btn bg-green-500 text-white'>Update</button></Link>
-                                    <button onClick={() => { handleDelete(spot._id) }} className='btn bg-red-500 text-white'>Delete</button>
-                                </td>
+      <div className='w-full md:w-3/5 mx-auto'>
+         <h2 className='my-6 text-2xl font-bold text-center text-green-500'> Spot Lists   </h2>
+        <div className="">
+            <div>
+                <div className=" ">
+                    <table className="table   ">
+                        {/* head */}
+                        <thead>
+                            <tr className='font-bold text-sm text-green-600'>
+                                {/* <th className='w-1/2 sm:w-1/6'>No</th> */}
+                                <th className='w-1/2 sm:w-1/6'>Spot Name</th>
+                                <th className='w-1/2 sm:w-1/6'>Country</th>
+                                <th className='w-1/2 sm:w-1/6'>Actions</th>
                             </tr>
-                        )
-                    }
-                </tbody>
-                {/* foot */}
-                <tfoot>
-                </tfoot>
-            </table>
+                        </thead>
+                        <tbody>
+                            {
+                                spots.map((spot, index) =>
+                                    <tr key={spot._id} className=''>
+                                        {/* <td>{index + 1}</td> */}
+                                        <td className='w-1/2 sm:w-1/6'>
+                                            <div className="flex items-center gap-3 ">
+                                                <div className="avatar">
+                                                {/* <td>{index + 1}</td>  */}
+                                                    <div className="rounded-xl w-24 h-24">
+                                                        <img className='h-full w-full' src={spot.image} alt={spot.spotName} />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-bold text-sm md:text-xl">{spot.spotName}</div>
+                                                    <div className="text-sm md:text-xl opacity-50">{spot.location}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span className="badge badge-ghost badge-sm">{spot.countryName}</span>
+                                        </td>
+                                        <td className='w-1/2 sm:w-1/6 border-red-400'>
+                                            <Link to={`/updatespot/${spot._id}`}><button className='btn bg-green-500 text-white'>Update</button></Link>
+                                            <button onClick={() => { handleDelete(spot._id) }} className='btn bg-red-500 text-white'>Delete</button>
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                        {/* foot */}
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
     );
 };

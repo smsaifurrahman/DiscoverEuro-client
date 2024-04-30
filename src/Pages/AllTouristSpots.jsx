@@ -33,6 +33,7 @@ const AllTouristSpots = () => {
 
     return (
         <div className=''>
+            <h2 className='my-6 text-2xl font-bold text-center text-red-500'> Visit your Favorite Destinations </h2>
             {/* Render loading indicator when loading is true */}
             {loading && <div className='flex flex-col items-center justify-center'><span className="loading text-red-500 loading-dots loading-lg"></span></div>}
 

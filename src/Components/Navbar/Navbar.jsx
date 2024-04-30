@@ -83,7 +83,7 @@ const Navbar = () => {
       user  
       ? <div className='flex gap-2 items-center justify-center'>
         <div className="">
-          <img className='w-12 my-anchor-element rounded-full' alt="Tailwind CSS Navbar component" src={user.photoURL} />
+          <img className='w-12 my-anchor-element rounded-full' alt="" src={user.photoURL} />
         </div>
         <Link to={'/'} > <button onClick={handleLogout} className='btn'>Logout</button> </Link>
 
