@@ -5,18 +5,25 @@ import { data } from 'autoprefixer';
 import Swal from 'sweetalert2';
 
 const MyList = () => {
+    const [loading, setLoading] = useState(true)
     const {user} = useContext(AuthContext) || {};
     const [spots , setSpots] = useState([]) || [];
     
 
-    useEffect(()=>{
+    useEffect(() => {
+        setLoading(true);
         fetch(`https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots/email/${user.email}`)
-        .then(res => res.json())
-        .then(data => {
-            setSpots(data)
-        })
-
-    },[spots])
+            .then(res => res.json())
+            .then(data => {
+                setSpots(data);
+                setLoading(false); // Update loading state after setting spots
+            })
+            .catch(error => {
+                console.error('Error fetching spots:', error);
+                setLoading(false); // Update loading state in case of error
+            });
+    }, []);
+    
 
     const handleDelete = id => {
 
@@ -35,6 +42,10 @@ const MyList = () => {
                })
                .then(res => res.json())
                .then(data =>{
+
+                const updatedSpots = spots.filter(spot => spot._id !== id);
+              // Update the state with the filtered array
+                setSpots(updatedSpots);
                          Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",
@@ -45,23 +56,16 @@ const MyList = () => {
             }
           });
 
-         //       Swal.fire({
-        //         title: "Deleted!",
-        //         text: "Your file has been deleted.",
-        //         icon: "success"
-        //       });
+      
+    }
 
-
-       
-    //    .then(res=>{
-    //     console.log(res);
-    //    })
-    //    .then(data=>{})
+    if(loading) {
+        return  <div className='flex flex-col items-center justify-center'><span className="loading  loading-dots loading-lg"></span> </div>
     }
 
     return (
         <div className='w-full md:w-3/5 mx-auto '>
-
+           
     <div>
         <div className="   ">
             <table className="table">
@@ -75,7 +79,7 @@ const MyList = () => {
                     </tr>
                 </thead>
                 <tbody className=''>
-                    {!spots && <div className='flex flex-col items-center justify-center'><span className="loading  loading-dots loading-lg"></span> </div>}
+                   
                     {/* row 1 */}
                     {
                         spots.map(spot => 

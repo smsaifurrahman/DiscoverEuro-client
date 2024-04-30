@@ -8,6 +8,7 @@ import WhyUs from '../Components/WhyUs';
 
 const Home = () => {
     const spots = useLoaderData() || [];
+    
     return (
         <div>
              

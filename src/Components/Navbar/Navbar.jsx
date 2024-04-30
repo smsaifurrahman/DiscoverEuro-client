@@ -33,7 +33,7 @@ const Navbar = () => {
             <NavLink to={'/allspot'} className= {({isActive}) => isActive ? ' font-bold text-red-500 border-2 border-red-300  text-xl p-2 rounded-xl md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300   md:mx-2'} > All Tourists Spots </NavLink>
             <NavLink to={'/addspot'} className={({isActive}) => isActive ? ' font-bold text-red-500 text-xl border-2 border-red-300   p-2 rounded-xl' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300 '}> Add Tourists Spot </NavLink>
             <NavLink to={'/mylist'} className={({isActive}) => isActive ? ' font-bold text-red-500 text-xl border-2 border-red-300  p-2 rounded-xl  md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300  md:mx-2'}> My List </NavLink>
-            <NavLink to={'/mylists'} className={({isActive}) => isActive ? ' font-bold text-red-500 text-xl border-2 border-red-300  p-2 rounded-xl  md:mx-2' : 'font-bold p-2 text-xl rounded-xl border-2 border-red-300  md:mx-2'}> My List </NavLink>
+           
     
            
     
