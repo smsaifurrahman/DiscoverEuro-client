@@ -53,7 +53,7 @@ import TouristSpotHome from "../Components/TouristSpotHome";
         },
         {
           path: '/spotdetails/:id',
-          element: <SpotCardDetails></SpotCardDetails>,
+          element: <PrivateRoute><SpotCardDetails></SpotCardDetails></PrivateRoute>,
           loader: ({params}) => fetch(`https://discover-euro-server-r9x6oq445-s-m-saifur-rahmans-projects.vercel.app/spots/${params.id}`)
         },
         {
